@@ -30,11 +30,7 @@ public class UserMealsUtil {
         Map<LocalDate, Integer> sumMealPerDate = new HashMap<>();
         for (UserMeal meal : mealList) {
             LocalDate currentMealDate = meal.getDateTime().toLocalDate();
-            if (sumMealPerDate.containsKey(currentMealDate)) {
-                sumMealPerDate.put(currentMealDate, sumMealPerDate.get(currentMealDate) + meal.getCalories());
-            } else {
-                sumMealPerDate.put(currentMealDate, meal.getCalories());
-            }
+            sumMealPerDate.merge(currentMealDate, meal.getCalories(), (a, b) -> sumMealPerDate.get(currentMealDate) + meal.getCalories());
         }
 
         //Проверяем еду на превышение каллорий
