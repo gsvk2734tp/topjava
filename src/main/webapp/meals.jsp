@@ -23,10 +23,13 @@
             <td>${meal.getDateTime()}</td>
             <td>${meal.getDescription()}</td>
             <td>${meal.getCalories()}</td>
+            <td><a href="meals?action=update&mealId=<c:out value="${meal.getId()}"/>">Редактировать</a></td>
+            <td><a href="meals?action=delete&mealId=<c:out value="${meal.getId()}"/>">Удалить</a></td>
         </tr>
     </c:forEach>
     </tbody>
 </table>
+<p><a href="meals?action=add">Добавить еду</a></p>
 
 </body>
 </html>
