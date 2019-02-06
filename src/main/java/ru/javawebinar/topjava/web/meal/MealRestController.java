@@ -7,6 +7,8 @@ import ru.javawebinar.topjava.service.MealService;
 import ru.javawebinar.topjava.to.MealWithExceed;
 import ru.javawebinar.topjava.web.SecurityUtil;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 @Controller
@@ -32,5 +34,15 @@ public class MealRestController {
 
     public List<MealWithExceed> getAll() {
         return service.getAll(SecurityUtil.authUserId());
+    }
+
+    public List<MealWithExceed> getFilter(String fDate, String tDate, String fTime, String tTime) {
+
+        LocalDate fromDate = fDate == null || fDate.isEmpty() ? LocalDate.MIN : LocalDate.parse(fDate);
+        LocalDate toDate = tDate == null || tDate.isEmpty() ? LocalDate.MAX : LocalDate.parse(tDate);
+        LocalTime fromTime = fTime == null || fTime.isEmpty() ? LocalTime.MIN : LocalTime.parse(fTime);
+        LocalTime toTime = tTime == null || tTime.isEmpty() ? LocalTime.MAX : LocalTime.parse(tTime);
+
+        return service.getFilter(SecurityUtil.authUserId(), fromDate, toDate, fromTime, toTime);
     }
 }
