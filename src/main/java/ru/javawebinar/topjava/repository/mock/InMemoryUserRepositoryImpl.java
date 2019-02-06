@@ -10,8 +10,9 @@ import java.util.Collections;
 import java.util.List;
 
 @Repository
-public class MockUserRepositoryImpl implements UserRepository {
-    private static final Logger log = LoggerFactory.getLogger(MockUserRepositoryImpl.class);
+public class InMemoryUserRepositoryImpl implements UserRepository {
+    private static final Logger log = LoggerFactory.getLogger(InMemoryUserRepositoryImpl.class);
+
 
     @Override
     public boolean delete(int id) {
@@ -34,6 +35,7 @@ public class MockUserRepositoryImpl implements UserRepository {
     @Override
     public List<User> getAll() {
         log.info("getAll");
+        //Пункт 1 нужно отсортировать по имени
         return Collections.emptyList();
     }
 
