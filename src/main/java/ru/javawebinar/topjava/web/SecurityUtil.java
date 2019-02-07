@@ -10,7 +10,10 @@ public class SecurityUtil {
     public static int authUserId() {
         return USER_ID;
     }
-    public static int authAdminId() {return ADMIN_ID; }
+
+    public static void setUserId(Integer userId) {
+        USER_ID = userId;
+    }
 
     public static int authUserCaloriesPerDay() {
         return DEFAULT_CALORIES_PER_DAY;
