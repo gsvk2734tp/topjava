@@ -27,10 +27,6 @@ import static ru.javawebinar.topjava.UserTestData.USER_ID;
 @Sql(scripts = "classpath:db/populateDB.sql", config = @SqlConfig(encoding = "UTF-8"))
 public class MealServiceTest extends TestRules {
 
-    static {
-        SLF4JBridgeHandler.install();
-    }
-
     @Autowired
     private MealService service;
 
