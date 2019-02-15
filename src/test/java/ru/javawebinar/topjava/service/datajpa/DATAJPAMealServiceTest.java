@@ -4,6 +4,6 @@ import org.springframework.test.context.ActiveProfiles;
 import ru.javawebinar.topjava.Profiles;
 import ru.javawebinar.topjava.service.UserServiceTest;
 
-@ActiveProfiles(profiles = {Profiles.POSTGRES_DB, Profiles.DATAJPA})
+@ActiveProfiles(Profiles.DATAJPA)
 public class DATAJPAMealServiceTest extends UserServiceTest {
 }
