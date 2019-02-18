@@ -9,12 +9,14 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import ru.javawebinar.topjava.model.Meal;
 import ru.javawebinar.topjava.repository.MealRepository;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
+@Transactional(readOnly = true)
 @Repository
 public class JdbcMealRepositoryImpl implements MealRepository {
 
@@ -85,3 +87,4 @@ public class JdbcMealRepositoryImpl implements MealRepository {
                 ROW_MAPPER, userId, startDate, endDate);
     }
 }
+
