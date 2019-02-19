@@ -8,41 +8,6 @@
 <body>
 <jsp:include page="fragments/bodyHeader.jsp"/>
 
-<style>
-    dl {
-        background: none repeat scroll 0 0 #FAFAFA;
-        margin: 8px 0;
-        padding: 0;
-    }
-
-    dt {
-        display: inline-block;
-        width: 170px;
-    }
-
-    dd {
-        display: inline-block;
-        margin-left: 8px;
-        vertical-align: top;
-    }
-
-    tr[data-mealExcess="false"] {
-        color: green;
-    }
-
-    tr[data-mealExcess="true"] {
-        color: red;
-    }
-
-    header, footer {
-        background: none repeat scroll 0 0 #A6C9E2;
-        color: #2E6E9E;
-        font-size: 20px;
-        padding: 5px 20px;
-        margin: 6px 0;
-    }
-</style>
-
 <section>
     <h3>Meals</h3>
     <form method="post" action="meals">

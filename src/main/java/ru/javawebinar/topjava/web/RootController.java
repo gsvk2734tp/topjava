@@ -31,4 +31,9 @@ public class RootController {
         SecurityUtil.setAuthUserId(userId);
         return "redirect:meals";
     }
+
+    @GetMapping()
+    public String get() {
+        return "index";
+    }
 }
