@@ -22,19 +22,23 @@
                     <div class="row">
                         <div class="offset-1 col-2">
                             <label for="startDate"><spring:message code="meal.startDate"/>:</label>
-                            <input class="form-control" name="startDate" value="${param.startDate}" id="startDate">
+                            <input type="date" class="form-control" name="startDate" value="${param.startDate}"
+                                   id="startDate">
                         </div>
                         <div class="col-2">
                             <label for="endDate"><spring:message code="meal.endDate"/>:</label>
-                            <input class="form-control" name="endDate" value="${param.endDate}" id="endDate">
+                            <input type="date" class="form-control" name="endDate" value="${param.endDate}"
+                                   id="endDate">
                         </div>
                         <div class="offset-2 col-2">
                             <label for="startTime"><spring:message code="meal.startTime"/>:</label>
-                            <input class="form-control" name="startTime" value="${param.startTime}" id="startTime">
+                            <input type="time" class="form-control" name="startTime" value="${param.startTime}"
+                                   id="startTime">
                         </div>
                         <div class="col-2">
                             <label for="endTime"><spring:message code="meal.endTime"/>:</label>
-                            <input class="form-control" name="endTime" value="${param.endTime}" id="endTime">
+                            <input type="time" class="form-control" name="endTime" value="${param.endTime}"
+                                   id="endTime">
                         </div>
                     </div>
                     <br>
@@ -49,7 +53,7 @@
 
 
         <br>
-        <button class="btn btn-primary" onclick="add">
+        <button class="btn btn-primary" onclick="add()">
             <span class="fa fa-plus"></span>
             <spring:message code="common.add"/>
         </button>
@@ -76,13 +80,57 @@
                     <td>${meal.description}</td>
                     <td>${meal.calories}</td>
                     <td><a href="meals/update?id=${meal.id}"><span class="fa fa-pencil"></span></a></td>
-                    <td><a href="meals/delete?id=${meal.id}"><span class="fa fa-remove"></span></a></td>
+                    <td><a class="delete" id="${meal.id}"><span class="fa fa-remove"></span></a></td>
                 </tr>
             </c:forEach>
         </table>
     </div>
-
 </div>
+
+<div class="modal fade" tabindex="-1" id="editRow">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title"><spring:message code="common.add"/></h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="detailsForm">
+                    <input type="hidden" id="id" name="id">
+
+                    <div class="form-group">
+                        <label for="dateTime" class="col-form-label">
+                            <spring:message code="meal.dateTime"/></label>
+                        <input type="datetime-local" class="form-control" id="dateTime" name="dateTime">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description" class="col-form-label">
+                            <spring:message code="meal.description"/></label>
+                        <input type="text" class="form-control" id="description" name="description">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="calories" class="col-form-label">
+                            <spring:message code="meal.calories"/> </label>
+                        <input type="number" class="form-control" id="calories" name="calories">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    <span class="fa fa-close"></span>
+                    <spring:message code="common.cancel"/>
+                </button>
+                <button type="button" class="btn btn-primary" onclick="save()">
+                    <span class="fa fa-check"></span>
+                    <spring:message code="common.save"/>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <jsp:include page="fragments/footer.jsp"/>
 </body>
 </html>
