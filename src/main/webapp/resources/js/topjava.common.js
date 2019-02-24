@@ -32,6 +32,10 @@ function updateTable() {
     });
 }
 
+function updateTableByData(data) {
+    datatableApi.clear().rows.add(data).draw();
+}
+
 function save() {
     let form = $("#detailsForm");
     $.ajax({

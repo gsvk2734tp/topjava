@@ -34,3 +34,21 @@ $(function () {
     });
     makeEditable();
 });
+
+//filter ajax
+function filter() {
+    $.ajax({
+        type: "GET",
+        url: ajaxUrl + "filter",
+        data: $("#filter").serialize()
+    }).done(updateTableByData);
+}
+
+//clear filters
+$('#cancel-filter').on('click', function () {
+    $('#startDate').val(null).trigger("change");
+    $('#endDate').val(null).trigger("change");
+    $('#startTime').val(null).trigger("change");
+    $('#endTime').val(null).trigger("change");
+    $.get(ajaxUrl, updateTableByData)
+});
