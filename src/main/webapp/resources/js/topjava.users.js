@@ -40,3 +40,12 @@ $(function () {
     });
     makeEditable();
 });
+
+function check(id) {
+    $.ajax({
+        type: "GET",
+        url: ajaxUrl + "check/" +id
+    }).done(function () {
+        updateTable();
+    })
+}
