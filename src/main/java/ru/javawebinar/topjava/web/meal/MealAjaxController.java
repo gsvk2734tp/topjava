@@ -41,7 +41,7 @@ public class MealAjaxController extends AbstractMealController {
         }
     }
 
-    @GetMapping("/filter")
+    @GetMapping(value = "/filter", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<MealTo> getFiltered(
                             @RequestParam(value = "startDate", required = false) LocalDate startDate,
                             @RequestParam(value = "startTime", required = false) LocalTime startTime,

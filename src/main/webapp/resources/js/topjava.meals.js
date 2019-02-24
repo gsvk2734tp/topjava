@@ -32,7 +32,10 @@ $(function () {
             ]
         ]
     });
-    makeEditable();
+    $('#filter').submit(function () {
+        filter();
+        return false;
+    });
 });
 
 //filter ajax
@@ -40,8 +43,12 @@ function filter() {
     $.ajax({
         type: "GET",
         url: ajaxUrl + "filter",
-        data: $("#filter").serialize()
-    }).done(updateTableByData);
+        data: $("#filter").serialize(),
+        success: function (data) {
+            updateTableByData(data);
+        }
+    });
+    return false;
 }
 
 //clear filters

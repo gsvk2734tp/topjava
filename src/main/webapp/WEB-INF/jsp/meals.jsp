@@ -46,7 +46,7 @@
                         <button id="cancel-filter" class="btn btn-danger" onclick="click()">
                             <span class="fa fa-remove"> <spring:message code="meal.reset"/></span>
                         </button>
-                        <button class="btn btn-primary" onclick="filter()" type="submit">
+                        <button class="btn btn-primary" onclick="filter()">
                             <span class="fa fa-filter" > <spring:message code="meal.filter"/></span>
                         </button>
                     </div>
