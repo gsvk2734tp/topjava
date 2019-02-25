@@ -12,7 +12,7 @@ function makeEditable(ctx) {
 }
 
 function add() {
-    $("#modalTitle").html(i18n["addTitle"]);
+     $("#modalTitle").html(i18n["addTitle"]);
     form.find(":input").val("");
     $("#editRow").modal();
 }

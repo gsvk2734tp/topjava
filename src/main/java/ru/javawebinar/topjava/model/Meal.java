@@ -34,7 +34,7 @@ public class Meal extends AbstractBaseEntity {
 
     @Column(name = "description", nullable = false)
     @NotBlank
-    @Size(min = 2, max = 120)
+    @Size(min = 2, max = 120, message = "length must between 2 and 120 characters")
     private String description;
 
     @Column(name = "calories", nullable = false)
