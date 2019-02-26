@@ -19,19 +19,19 @@
                     <div class="row">
                         <div class="col-3">
                             <label for="startDate"><spring:message code="meal.startDate"/></label>
-                            <input class="form-control" type="date" name="startDate" id="startDate">
+                            <input autocomplete="off" class="form-control" name="startDate" id="startDate">
                         </div>
                         <div class="col-3">
                             <label for="endDate"><spring:message code="meal.endDate"/></label>
-                            <input class="form-control" type="date" name="endDate" id="endDate">
+                            <input autocomplete="off" class="form-control" name="endDate" id="endDate">
                         </div>
                         <div class="offset-2 col-2">
                             <label for="startTime"><spring:message code="meal.startTime"/></label>
-                            <input class="form-control" type="time" name="startTime" id="startTime">
+                            <input autocomplete="off" class="form-control" name="startTime" id="startTime">
                         </div>
                         <div class="col-2">
                             <label for="endTime"><spring:message code="meal.endTime"/></label>
-                            <input class="form-control" type="time" name="endTime" id="endTime">
+                            <input autocomplete="off" class="form-control" name="endTime" id="endTime">
                         </div>
                     </div>
                 </form>
@@ -62,21 +62,6 @@
                 <th></th>
             </tr>
             </thead>
-            <%--<c:forEach items="${meals}" var="meal">--%>
-                <%--<jsp:useBean id="meal" type="ru.javawebinar.topjava.to.MealTo"/>--%>
-                <%--<tr data-mealExcess="${meal.excess}">--%>
-                    <%--<td>--%>
-                            <%--&lt;%&ndash;${meal.dateTime.toLocalDate()} ${meal.dateTime.toLocalTime()}&ndash;%&gt;--%>
-                            <%--&lt;%&ndash;<%=TimeUtil.toString(meal.getDateTime())%>&ndash;%&gt;--%>
-                            <%--&lt;%&ndash;${fn:replace(meal.dateTime, 'T', ' ')}&ndash;%&gt;--%>
-                            <%--${fn:formatDateTime(meal.dateTime)}--%>
-                    <%--</td>--%>
-                    <%--<td>${meal.description}</td>--%>
-                    <%--<td>${meal.calories}</td>--%>
-                    <%--<td><a onclick="updateRow(${meal.id})"><span class="fa fa-pencil"></span></a></td>--%>
-                    <%--<td><a onclick="deleteRow(${meal.id})"><span class="fa fa-remove"></span></a></td>--%>
-                <%--</tr>--%>
-            <%--</c:forEach>--%>
         </table>
     </div>
 </div>
