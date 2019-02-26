@@ -25,16 +25,18 @@ $(function () {
             "info": true,
             "columns": [
                 {
-                    "data": "dateTime"
-                },
-                {
-                    "data": "description",
+                    "data": "dateTime",
                     "render": function (date, type, row) {
                         if (type === "display") {
-                            return date.substring(0, 10);
+                            return date.replace('T', ' ').substr(0, 16);
+
                         }
                         return date;
                     }
+                },
+                {
+                    "data": "description",
+
                 },
                 {
                     "data": "calories"
@@ -55,10 +57,15 @@ $(function () {
                     0,
                     "desc"
                 ]
-            ]
+            ],
+            "createdRow": function (row, data, dataIndex) {
+                $(row).attr("data-mealExcess", data.excess)
+
+            }
         }),
         updateTable: function () {
             $.get(mealAjaxUrl, updateTableByData)
         }
-    });
+    }
+    );
 });
