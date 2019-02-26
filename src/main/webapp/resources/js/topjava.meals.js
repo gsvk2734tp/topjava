@@ -71,25 +71,30 @@ $(function () {
 
     $('#startDate').datetimepicker({
         timepicker: false,
-        format: 'Y-m-d'
+        format: 'Y-m-d',
+        theme:'dark'
     });
 
     $('#endDate').datetimepicker({
         timepicker: false,
-        format: 'Y-m-d'
+        format: 'Y-m-d',
+        theme:'dark'
     });
 
     $('#startTime').datetimepicker({
         datepicker: false,
-        format: 'H:i'
+        format: 'H:i',
+        theme:'dark'
     });
 
     $('#endTime').datetimepicker({
         datepicker: false,
-        format: 'H:i'
+        format: 'H:i',
+        theme:'dark'
     });
 
     $('#dateTime').datetimepicker({
-        format: 'Y-m-d H:i'
+        format: 'Y-m-d H:i',
+        theme:'dark'
     });
 });
