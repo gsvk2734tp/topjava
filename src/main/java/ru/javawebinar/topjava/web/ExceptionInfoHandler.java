@@ -43,6 +43,8 @@ public class ExceptionInfoHandler {
         String cause = String.valueOf(e.getCause().getCause());
         if (cause != null && cause.contains("users_unique_email_idx")) {
             return logAndGetErrorInfo(req, new DataIntegrityViolationException("User with this email already exists"), false, DATA_ERROR);
+        } else if (cause != null && cause.contains("meals_unique_user_datetime_idx")) {
+            return logAndGetErrorInfo(req, new DataIntegrityViolationException("Meal with this date already exists"), false, DATA_ERROR);
         }
         return logAndGetErrorInfo(req, e, false, DATA_ERROR);
     }
