@@ -12,6 +12,9 @@ function makeEditable(ctx) {
                 },
                 "paging": false,
                 "info": true,
+                "language": {
+                    "search": i18n["common.search"]
+                }
             }
         ));
 
