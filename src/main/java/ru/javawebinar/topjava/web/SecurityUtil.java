@@ -8,6 +8,9 @@ import static java.util.Objects.requireNonNull;
 
 public class SecurityUtil {
 
+    private SecurityUtil() {
+    }
+
     public static AuthorizedUser safeGet() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if (auth == null) {
@@ -21,9 +24,6 @@ public class SecurityUtil {
         AuthorizedUser user = safeGet();
         requireNonNull(user, "No authorized user found");
         return user;
-    }
-
-    private SecurityUtil() {
     }
 
     public static int authUserId() {

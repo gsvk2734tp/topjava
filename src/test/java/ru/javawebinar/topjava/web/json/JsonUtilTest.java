@@ -7,10 +7,8 @@ import ru.javawebinar.topjava.model.User;
 
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.containsString;
-import static org.hamcrest.CoreMatchers.not;
-import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static ru.javawebinar.topjava.MealTestData.*;
 
 class JsonUtilTest {
@@ -32,10 +30,11 @@ class JsonUtilTest {
     }
 
     @Test
+//  https://junit.org/junit5/docs/current/user-guide/#writing-tests-assertions
     void testWriteOnlyAccess() throws Exception {
         String json = JsonUtil.writeValue(UserTestData.USER);
         System.out.println(json);
-        assertThat(json, not(containsString("password")));
+        assertFalse(json.contains("password"));
         String jsonWithPass = UserTestData.jsonWithPassword(UserTestData.USER, "newPass");
         System.out.println(jsonWithPass);
         User user = JsonUtil.readValue(jsonWithPass, User.class);

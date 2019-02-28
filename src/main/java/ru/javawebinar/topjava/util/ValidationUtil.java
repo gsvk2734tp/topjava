@@ -1,6 +1,5 @@
 package ru.javawebinar.topjava.util;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import ru.javawebinar.topjava.HasId;
@@ -71,7 +70,7 @@ public class ValidationUtil {
                         joiner.add(msg);
                     }
                 });
-        return new ResponseEntity<>(joiner.toString(), HttpStatus.UNPROCESSABLE_ENTITY);
+        return ResponseEntity.unprocessableEntity().body(joiner.toString());
     }
 
     public static String getMessage(Throwable e) {
